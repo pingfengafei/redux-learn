@@ -12,6 +12,7 @@ class Counter extends Component {
     // }
 
 
+
 //定义类的方法,不需要添加function,直接使用函数名
 // 方法之间不需要用逗号或者分号,会报错
     handleIncreaseClick() {
