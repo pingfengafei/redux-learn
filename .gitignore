@@ -1,0 +1,8 @@
+#following are git ignore files or dictionary
+
+#ignore .ignore files
+.ignore
+
+#ignore node_modules
+/node_modules/*
+
