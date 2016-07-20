@@ -33,7 +33,6 @@ class App extends Component {
     }
 }
 
-
 App.propTypes = {
     visibleTodos: PropTypes.arrayOf(PropTypes.shape({
         text: PropTypes.string.isRequired,
