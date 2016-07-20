@@ -3,12 +3,17 @@ import {connect} from 'react-redux'
 import CounterAction from '../actions/counterAction'
 class Counter extends Component {
 
-    constructor(props) {
-        super(props);
-        this.handleIncreaseClick = this.handleIncreaseClick.bind(this);
-        this.handleDecreaseClick = this.handleDecreaseClick.bind(this);
-    }
+    //并不需要constructor
+    // constructor() {
+    //     super();
+    //     //     //一次bind this,以后多次调用就不用再次bind
+    //     this.handleIncreaseClick = this.handleIncreaseClick.bind(this);
+    //     this.handleDecreaseClick = this.handleDecreaseClick.bind(this);
+    // }
 
+
+//定义类的方法,不需要添加function,直接使用函数名
+// 方法之间不需要用逗号或者分号,会报错
     handleIncreaseClick() {
         this.props.handleIncreaseClick('increase');
     }
@@ -21,10 +26,10 @@ class Counter extends Component {
         return (<div>
             <div>counter : {this.props.value}</div>
             <div>increase or decrease : {this.props.text}</div>
-            <button onClick={this.handleIncreaseClick}>
+            <button onClick={this.handleIncreaseClick.bind(this)}>
                 increment
             </button>
-            <button onClick={this.handleDecreaseClick}>
+            <button onClick={this.handleDecreaseClick.bind(this)}>
                 decrement
             </button>
         </div>)

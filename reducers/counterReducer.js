@@ -12,3 +12,4 @@ export function counter(state = { count: 0, text: '加减器' }, action) {
             return state;
     }
 }
+
