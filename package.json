@@ -3,9 +3,38 @@
   "version": "0.0.0",
   "description": "Redux Todos example",
   "scripts": {
-    "start": "node server.js",
+    "start": "better-npm-run start",
     "test": "cross-env NODE_ENV=test mocha --recursive --compilers js:babel-register --require ./test/setup.js",
     "test:watch": "npm test -- --watch"
+  },
+  "betterScripts": {
+    "test": {
+      "command": "webpack-dev-server --hot --inline --progress --colors --history-api-fallback",
+      "env": {
+        "DEBUG": "mofa:*",
+        "NODE_ENV": "test"
+      }
+    },
+    "start": {
+      "command": "node server.js",
+      "env": {
+        "DEBUG": "mofa:*",
+        "NODE_ENV": "dev"
+      }
+    },
+    "build": {
+      "command": "webpack --progress --profile --colors",
+      "env": {
+        "DEBUG": "mofa:*",
+        "NODE_ENV": "prod"
+      }
+    },
+    "release": {
+      "command": "babel-node bin/release",
+      "env": {
+        "DEBUG": "mofa:*"
+      }
+    }
   },
   "repository": {
     "type": "git",
@@ -19,13 +48,26 @@
   "dependencies": {
     "babel-eslint": "^6.1.2",
     "babel-polyfill": "^6.3.14",
+    "better-npm-run": "0.0.9",
+    "defaultable": "^0.7.2",
+    "dns": "^0.2.2",
     "eslint": "^3.0.1",
     "eslint-loader": "^1.4.1",
     "eslint-plugin-react": "^5.1.1",
-    "react": "^0.14.7",
-    "react-dom": "^0.14.7",
+    "json-loader": "^0.5.4",
+    "jsonwebtoken": "^5.7.0",
+    "material-ui": "^0.15.2",
+    "module": "^1.2.5",
+    "native-dns": "^0.7.0",
+    "net": "^1.0.2",
+    "react": "^15.2.1",
+    "react-dom": "^15.2.1",
     "react-redux": "^4.1.2",
-    "redux": "^3.1.2"
+    "react-tap-event-plugin": "^1.0.0",
+    "redux": "^3.1.2",
+    "redux-thunk": "^2.1.0",
+    "tap": "^6.2.0",
+    "whatwg-fetch": "^1.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.3.15",

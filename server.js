@@ -1,10 +1,13 @@
 var webpack = require('webpack')
+var config = require('./webpack.config')
 var webpackDevMiddleware = require('webpack-dev-middleware')
 var webpackHotMiddleware = require('webpack-hot-middleware')
-var config = require('./webpack.config')
+
+
+//console.log(config.node);
 
 var app = new (require('express'))()
-var port = 3000
+var port = 2000
 
 var compiler = webpack(config)
 app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }))

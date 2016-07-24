@@ -1,7 +1,21 @@
-var path = require('path')
 var webpack = require('webpack')
 
+var path = require('path')
+
+
+// import injectTapEventPlugin from 'react-tap-event-plugin';
+// injectTapEventPlugin();
+
 module.exports = {
+    node: {
+        tap: 'empty',
+        net: 'empty',
+        tls: 'empty',
+        dns: 'empty',
+        fs: 'empty',
+        dgram: 'empty',
+        child_process :'empty'
+    },
     devtool: 'cheap-module-eval-source-map',
     entry: [
         'webpack-hot-middleware/client',

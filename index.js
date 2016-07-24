@@ -1,11 +1,13 @@
 import React from 'react';
-import { render } from 'react-dom'
-import { createStore } from 'redux'
-import { Provider } from 'react-redux'
-import App from './containers/App'
-import todoApp from './reducers/reducers'
+import { render } from 'react-dom';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import App from './src/containers/App';
+import todoAppReducer from './src/reducers/reducers';
+import thunk from 'redux-thunk';
 
-let store = createStore(todoApp)
+let store = createStore(todoAppReducer, applyMiddleware(thunk));
+
 
 let rootElement = document.getElementById('root');
 render(
