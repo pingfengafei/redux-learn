@@ -41,7 +41,6 @@ class Counter extends Component {
 //输入： 全局变量
 //输出： 经过筛选后的state，作为props传给counter
 function mapStateToProps(state) {
-    console.log(state);
     return {
         value: state.counter.count,
         text: state.counter.text

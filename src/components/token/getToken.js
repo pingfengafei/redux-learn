@@ -14,7 +14,6 @@ export default class GetToken extends Component {
     sendLoginData() {
         const username = ReactDOM.findDOMNode(this.refs.username).value.trim();
         const password = ReactDOM.findDOMNode(this.refs.password).value.trim();
-        console.log(username, password);
         this.props.getToken(username, password);
     }
 

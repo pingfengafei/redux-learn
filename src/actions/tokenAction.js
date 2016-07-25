@@ -10,8 +10,9 @@ let tokenAction = {
         if (response.status >= 200 && response.status < 300) {
             return response
         } else {
-            var error = new Error(response.statusText)
-            error.response = response
+            var error = new Error(response.statusText);
+            error.response = response;
+            //throw后直接到catch
             throw error
         }
     },
@@ -36,19 +37,17 @@ let tokenAction = {
                     password
                 }
             });
-            console.log(fetchConfig.data);
+            //this.checkStatus和parseJSON都是回调函数
             fetch('http://maxcd01-dev06.chinacloudapp.cn:8888/usercenter/authorize', fetchConfig).then(this.checkStatus)
                 .then(this.parseJSON)
                 .then(function (data) {
-                    //console.log('request succeeded with JSON response', data)
                     dispatch({
                         type : GET_TOKEN_SUCESS,
                         data : data
                     });
                 }).catch(function (error) {
-                 //console.log('request failed', error)
-                didpatch({
-                   tyep: GET_TOKEN_FAILED,
+                dispatch({
+                   type: GET_TOKEN_FAILED,
                    data: error
                 });
             });
